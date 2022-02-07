@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <link rel="stylesheet" href="style.css">
+   <!----font--->
+    <meta charset="utf-8">
+    <title>Environmet_set_up</title>
+  </head>
+  <body class="ok3">
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">PROJECT</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" href="#">Projects</a>
+            <a class="nav-link" href="#">experience</a>
+              <a class="nav-link" href="#">Contact US</a>
+
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+
+    <p>Arrays a kind of data structure that can store a fixed-size sequential collection of elements of the same type. An array is used to store a collection of data, but it is often more useful to think of an array as a collection of variables of the same type.</p>
+    <p>Instead of declaring individual variables, such as number0, number1, ..., and number99, you declare one array variable such as numbers and use numbers[0], numbers[1], and ..., numbers[99] to represent individual variables. A specific element in an array is accessed by an index.</p>
+    <p>All arrays consist of contiguous memory locations. The lowest address corresponds to the first element and the highest address to the last element.</p>
+    <img src="/cprogramming/images/arrays.jpg" alt="Arrays in C" />
+    <h2>Declaring Arrays</h2>
+    <p>To declare an array in C, a programmer specifies the type of the elements and the number of elements required by an array as follows &minus;</p>
+    <pre class="result notranslate">
+    type arrayName [ arraySize ];
+    </pre>
+    <p>This is called a <i>single-dimensional</i> array. The <b>arraySize</b> must be an integer constant greater than zero and <b>type</b> can be any valid C data type. For example, to declare a 10-element array called <b>balance</b> of type double, use this statement &minus;</p>
+    <pre class="result notranslate">
+    double balance[10];
+    </pre>
+    <p>Here <i>balance</i> is a variable array which is sufficient to hold up to 10 double numbers.</p>
+    <h2>Initializing Arrays</h2>
+    <p>You can initialize an array in C either one by one or using a single statement as follows &minus;</p>
+    <pre class="result notranslate">
+    double balance[5] = {1000.0, 2.0, 3.4, 7.0, 50.0};
+    </pre>
+    <p>The number of values between braces { } cannot be larger than the number of elements that we declare for the array between square brackets [ ].</p>
+    <p>If you omit the size of the array, an array just big enough to hold the initialization is created. Therefore, if you write &minus;</p>
+    <pre class="result notranslate">
+    double balance[] = {1000.0, 2.0, 3.4, 7.0, 50.0};
+    </pre>
+    <p>You will create exactly the same array as you did in the previous example. Following is an example to assign a single element of the array &minus;</p>
+    <pre class="result notranslate">
+    balance[4] = 50.0;
+    </pre>
+    <p>The above statement assigns the 5<sup>th</sup> element in the array with a value of 50.0. All arrays have 0 as the index of their first element which is also called the base index and the last index of an array will be total size of the array minus 1. Shown below is the pictorial representation of the array we discussed above &minus;</p>
+    <img src="/cprogramming/images/array_presentation.jpg" alt="Array Presentation" />
+    <h2>Accessing Array Elements</h2>
+    <p>An element is accessed by indexing the array name. This is done by placing the index of the element within square brackets after the name of the array. For example &minus;</p>
+    <pre class="result notranslate">
+    double salary = balance[9];
+    </pre>
+    <p>The above statement will take the 10<sup>th</sup> element from the array and assign the value to salary variable. The following example Shows how to use all the three above mentioned concepts viz. declaration, assignment, and accessing arrays &minus;</p>
+    <div class="demo-view">
+    <a href="http://tpcg.io/dhfplr" target="_blank" rel="nofollow" class="demo"><i class="fa-external-link"></i> Live Demo</a>
+    </div>
+    <pre class="prettyprint notranslate">
+    #include &lt;stdio.h&gt;
+
+    int main () {
+
+       int n[ 10 ]; /* n is an array of 10 integers */
+       int i,j;
+
+       /* initialize elements of array n to 0 */
+       for ( i = 0; i &lt; 10; i++ ) {
+          n[ i ] = i + 100; /* set element at location i to i + 100 */
+       }
+
+       /* output each array element's value */
+       for (j = 0; j &lt; 10; j++ ) {
+          printf("Element[%d] = %d\n", j, n[j] );
+       }
+
+       return 0;
+    }
+    </pre>
+    <p>When the above code is compiled and executed, it produces the following result &minus;</p>
+    <pre class="result notranslate">
+    Element[0] = 100
+    Element[1] = 101
+    Element[2] = 102
+    Element[3] = 103
+    Element[4] = 104
+    Element[5] = 105
+    Element[6] = 106
+    Element[7] = 107
+    Element[8] = 108
+    Element[9] = 109
+    </pre>
+    <h2>Arrays in Detail</h2>
+    <p>Arrays are important to C and should need a lot more attention. The following important concepts related to array should be clear to a C programmer &minus;</p>
+    <table class="table table-bordered">
+    <tr>
+    <th style="text-align:center;">Sr.No.</th>
+    <th style="text-align:center;">Concept &amp; Description</th>
+    </tr>
+    <tr>
+    <td class="ts">1</td>
+    <td><a href="/cprogramming/c_multi_dimensional_arrays.htm">Multi-dimensional arrays</a>
+    <p>C supports multidimensional arrays. The simplest form of the multidimensional array is the two-dimensional array.</p></td>
+    </tr>
+    <tr>
+    <td class="ts">2</td>
+    <td><a href="/cprogramming/c_passing_arrays_to_functions.htm">Passing arrays to functions</a>
+    <p>You can pass to the function a pointer to an array by specifying the array's name without an index.</p></td>
+    </tr>
+    <tr>
+    <td class="ts">3</td>
+    <td><a href="/cprogramming/c_return_arrays_from_function.htm">Return array from a function</a>
+    <p>C allows a function to return an array.</p></td>
+    </tr>
+    <tr>
+    <td class="ts">4</td>
+    <td><a href="/cprogramming/c_pointer_to_an_array.htm">Pointer to an array</a>
+    <p>You can generate a pointer to the first element of an array by simply specifying the array name, without any index.</p></td>
+    </tr>
+    </table>
+    <div id="load">
+    	<div class="mui-col-md-12 mui-col-sm-12 np">
+    		<div class="row uk-min-height" id="ebooks_grid">
+
+
+    			<div class="clear"></div>
+
+    		</div>
+    		<div class="clear"></div>
+    	</div>
+    </div>
+    <div class="clear"></div>
+    <div class="mui-container-fluid button-borders show" id="bottom_navigation">
+    <div class="pre-btn">
+    <a href="/cprogramming/c_scope_rules.htm"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+    <a class="hide-on-mobile" href="javascript:printPage();"><i class="fa fa-print"></i> Print Page</a>
+    </div>
+    <div class="nxt-btn">
+    <a href="/cprogramming/c_pointers.htm">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+    </div>
+    </div>
+    <div class="space-bottom" style="margin-bottom:20px;"></div>
+    <div class="google-bottom-ads" id="google-bottom-ads">
+  
+    <div>
+
+
+  </body>
+</html>

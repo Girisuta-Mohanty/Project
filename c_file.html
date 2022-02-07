@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <link rel="stylesheet" href="style.css">
+   <!----font--->
+    <meta charset="utf-8">
+    <title>C_tutorial</title>
+  </head>
+  <body class="ok1">
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">PROJECT</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" href="#">Projects</a>
+            <a class="nav-link" href="#">experience</a>
+              <a class="nav-link" href="#">Contact US</a>
+
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+
+
+    <h1>C - File I/O</h1>
+  <hr/>
+  <div id="google-top-ads">
+  
+  <div style="text-align:center" class="google-top-ads">
+  <div id="adp_top_ads" style="text-align:center!important;min-height:90px!important"></div>
+
+  </div>
+  </div>
+  <br>
+  <div class="mui-container-fluid button-borders">
+  <div class="pre-btn">
+  <a href="/cprogramming/c_input_output.htm"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+  </div>
+  <div class="nxt-btn">
+  <a href="/cprogramming/c_preprocessors.htm">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+  </div>
+  </div>
+  <p>The last chapter explained the standard input and output devices handled by C programming language. This chapter cover how C programmers can create, open, close text or binary files for their data storage.</p>
+  <p>A file represents a sequence of bytes, regardless of it being a text file or a binary file. C programming language provides access on high level functions as well as low level (OS level) calls to handle file on your storage devices. This chapter will take you through the important calls for file management.</p>
+  <h2>Opening Files</h2>
+  <p>You can use the <b>fopen( )</b> function to create a new file or to open an existing file. This call will initialize an object of the type <b>FILE</b>, which contains all the information necessary to control the stream. The prototype of this function call is as follows &minus;</p>
+  <pre class="result notranslate">
+  FILE *fopen( const char * filename, const char * mode );
+  </pre>
+  <p>Here, <b>filename</b> is a string literal, which you will use to name your file, and access <b>mode</b> can have one of the following values &minus;</p>
+  <table class="table table-bordered">
+  <tr>
+  <th style="text-align:center;">Sr.No.</th>
+  <th style="text-align:center;">Mode &amp; Description</th>
+  </tr>
+  <tr>
+  <td class="ts">1</td>
+  <td><p><b>r</b></p>
+  <p>Opens an existing text file for reading purpose.</p></td>
+  </tr>
+  <tr>
+  <td class="ts">2</td>
+  <td><p><b>w</b></p>
+  <p>Opens a text file for writing. If it does not exist, then a new file is created. Here your program will start writing content from the beginning of the file.</p></td>
+  </tr>
+  <tr>
+  <td class="ts">3</td>
+  <td><p><b>a</b></p>
+  <p>Opens a text file for writing in appending mode. If it does not exist, then a new file is created. Here your program will start appending content in the existing file content.</p></td>
+  </tr>
+  <tr>
+  <td class="ts">4</td>
+  <td><p><b>r+</b></p>
+  <p>Opens a text file for both reading and writing.</p></td>
+  </tr>
+  <tr>
+  <td class="ts">5</td>
+  <td><p><b>w+</b></p>
+  <p>Opens a text file for both reading and writing. It first truncates the file to zero length if it exists, otherwise creates a file if it does not exist.</p></td>
+  </tr>
+  <tr>
+  <td class="ts">6</td>
+  <td><p><b>a+</b></p>
+  <p>Opens a text file for both reading and writing. It creates the file if it does not exist. The reading will start from the beginning but writing can only be appended.</p></td>
+  </tr>
+  </table>
+  <p>If you are going to handle binary files, then you will use following access modes instead of the above mentioned ones &minus;</p>
+  <pre class="result notranslate">
+  "rb", "wb", "ab", "rb+", "r+b", "wb+", "w+b", "ab+", "a+b"
+  </pre>
+  <h2>Closing a File</h2>
+  <p>To close a file, use the fclose( ) function. The prototype of this function is &minus;</p>
+  <pre class="result notranslate">
+  int fclose( FILE *fp );
+  </pre>
+  <p>The <b>fclose(-)</b> function returns zero on success, or <b>EOF</b> if there is an error in closing the file. This function actually flushes any data still pending in the buffer to the file, closes the file, and releases any memory used for the file. The EOF is a constant defined in the header file <b>stdio.h</b>.</p>
+  <p>There are various functions provided by C standard library to read and write a file, character by character, or in the form of a fixed length string.</p>
+  <h2>Writing a File</h2>
+  <p>Following is the simplest function to write individual characters to a stream &minus;</p>
+  <pre class="result notranslate">
+  int fputc( int c, FILE *fp );
+  </pre>
+  <p>The function <b>fputc()</b> writes the character value of the argument c to the output stream referenced by fp. It returns the written character written on success otherwise <b>EOF</b> if there is an error. You can use the following functions to write a null-terminated string to a stream &minus;</p>
+  <pre class="result notranslate">
+  int fputs( const char *s, FILE *fp );
+  </pre>
+  <p>The function <b>fputs()</b> writes the string <b>s</b> to the output stream referenced by fp. It returns a non-negative value on success, otherwise <b>EOF</b> is returned in case of any error. You can use <b>int fprintf(FILE *fp,const char *format, ...)</b> function as well to write a string into a file. Try the following example.</p>
+  <p>Make sure you have <b>/tmp</b> directory available. If it is not, then before proceeding, you must create this directory on your machine.</p>
+  <pre class="prettyprint notranslate">
+  #include &lt;stdio.h&gt;
+
+  main() {
+     FILE *fp;
+
+     fp = fopen("/tmp/test.txt", "w+");
+     fprintf(fp, "This is testing for fprintf...\n");
+     fputs("This is testing for fputs...\n", fp);
+     fclose(fp);
+  }
+  </pre>
+  <p>When the above code is compiled and executed, it creates a new file <b>test.txt</b> in /tmp directory and writes two lines using two different functions. Let us read this file in the next section.</p>
+  <h2>Reading a File</h2>
+  <p>Given below is the simplest function to read a single character from a file &minus;</p>
+  <pre class="result notranslate">
+  int fgetc( FILE * fp );
+  </pre>
+  <p>The <b>fgetc()</b> function reads a character from the input file referenced by fp. The return value is the character read, or in case of any error, it returns <b>EOF</b>. The following function allows to read a string from a stream &minus;</p>
+  <pre class="result notranslate">
+  char *fgets( char *buf, int n, FILE *fp );
+  </pre>
+  <p>The functions <b>fgets()</b> reads up to n-1 characters from the input stream referenced by fp. It copies the read string into the buffer <b>buf</b>, appending a <b>null</b> character to terminate the string.</p>
+  <p>If this function encounters a newline character '\n' or the end of the file EOF before they have read the maximum number of characters, then it returns only the characters read up to that point including the new line character. You can also use <b>int fscanf(FILE *fp, const char *format, ...)</b> function to read strings from a file, but it stops reading after encountering the first space character.</p>
+  <pre class="prettyprint notranslate">
+  #include &lt;stdio.h&gt;
+
+  main() {
+
+     FILE *fp;
+     char buff[255];
+
+     fp = fopen("/tmp/test.txt", "r");
+     fscanf(fp, "%s", buff);
+     printf("1 : %s\n", buff );
+
+     fgets(buff, 255, (FILE*)fp);
+     printf("2: %s\n", buff );
+
+     fgets(buff, 255, (FILE*)fp);
+     printf("3: %s\n", buff );
+     fclose(fp);
+
+  }
+  </pre>
+  <p>When the above code is compiled and executed, it reads the file created in the previous section and produces the following result &minus;</p>
+  <pre class="result notranslate">
+  1 : This
+  2: is testing for fprintf...
+
+  3: This is testing for fputs...
+  </pre>
+  <p>Let's see a little more in detail about what happened here. First, <b>fscanf()</b> read just <b>This</b> because after that, it encountered a space, second call is for <b>fgets()</b> which reads the remaining line till it encountered end of line. Finally, the last call <b>fgets()</b> reads the second line completely.</p>
+  <h2>Binary I/O Functions</h2>
+  <p>There are two functions, that can be used for binary input and output &minus;</p>
+  <pre class="prettyprint notranslate">
+  size_t fread(void *ptr, size_t size_of_elements, size_t number_of_elements, FILE *a_file);
+
+  size_t fwrite(const void *ptr, size_t size_of_elements, size_t number_of_elements, FILE *a_file);
+  </pre>
+  <p>Both of these functions should be used to read or write blocks of memories - usually arrays or structures.</p>
+  <div id="load">
+  	<div class="mui-col-md-12 mui-col-sm-12 np">
+  		<div class="row uk-min-height" id="ebooks_grid">
+
+
+  			<div class="clear"></div>
+
+  		</div>
+  		<div class="clear"></div>
+  	</div>
+  </div>
+  <div class="clear"></div>
+  <div class="mui-container-fluid button-borders show" id="bottom_navigation">
+  <div class="pre-btn">
+  <a href="c_input.html"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+
+  </div>
+  <div class="nxt-btn">
+  <a href="c_preprocessor.html">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+  </div>
+  </div>
+  <div class="space-bottom" style="margin-bottom:20px;"></div>
+  <div class="google-bottom-ads" id="google-bottom-ads">
+  <div>
+  <div id="adp_bottom_ads"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

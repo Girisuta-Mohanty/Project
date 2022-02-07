@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <link rel="stylesheet" href="style.css">
+   <!----font--->
+    <meta charset="utf-8">
+    <title>Environmet_set_up</title>
+  </head>
+  <body class="ok3">
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">PROJECT</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" href="#">Projects</a>
+            <a class="nav-link" href="#">experience</a>
+              <a class="nav-link" href="#">Contact US</a>
+
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <p>Data types in c refer to an extensive system used for declaring variables or functions of different types. The type of a variable determines how much space it occupies in storage and how the bit pattern stored is interpreted.</p>
+    <p>The types in C can be classified as follows &minus;</p>
+    <table class="table table-bordered">
+    <tr>
+    <th style="text-align:center;">Sr.No.</th>
+    <th style="text-align:center;">Types &amp; Description</th>
+    </tr>
+    <tr>
+    <td class="ts">1</td>
+    <td><p><b>Basic Types</b></p>
+    <p>They are arithmetic types and are further classified into: (a) integer types and (b) floating-point types.</p>
+    </td>
+    </tr>
+    <tr>
+    <td class="ts">2</td>
+    <td><p><b>Enumerated types</b></p>
+    <p>They are again arithmetic types and they are used to define variables that can only assign certain discrete integer values throughout the program.</p>
+    </td>
+    </tr>
+    <tr>
+    <td class="ts">3</td>
+    <td><p><b>The type void</b></p>
+    <p>The type specifier <i>void</i> indicates that no value is available.</p>
+    </td>
+    </tr>
+    <tr>
+    <td class="ts">4</td>
+    <td><p><b>Derived types</b></p>
+    <p>They include (a) Pointer types, (b) Array types, (c) Structure types, (d) Union types and (e) Function types.</p>
+    </td>
+    </tr>
+    </table>
+    <p>The array types and structure types are referred collectively as the aggregate types. The type of a function specifies the type of the function's return value. We will see the basic types in the following section, where as other types will be covered in the upcoming chapters.</p>
+    <h2>Integer Types</h2>
+    <p>The following table provides the details of standard integer types with their storage sizes and value ranges &minus;</p>
+    <table style="text-align:center;" class="table table-bordered">
+    <tr>
+    <th style="width:23%;text-align:center;">Type</th>
+    <th style="width:20%;text-align:center;">Storage size</th>
+    <th style="text-align:center;">Value range</th>
+    </tr>
+    <tr>
+    <td>char</td>
+    <td>1 byte</td>
+    <td>-128 to 127 or 0 to 255</td>
+    </tr>
+    <tr>
+    <td>unsigned char</td>
+    <td>1 byte</td>
+    <td>0 to 255</td>
+    </tr>
+    <tr>
+    <td>signed char</td>
+    <td>1 byte</td>
+    <td>-128 to 127</td>
+    </tr>
+    <tr>
+    <td style="vertical-align:middle;">int</td>
+    <td style="vertical-align:middle;">2 or 4 bytes</td>
+    <td>-32,768 to 32,767 or -2,147,483,648 to 2,147,483,647</td>
+    </tr>
+    <tr>
+    <td>unsigned int</td>
+    <td>2 or 4 bytes</td>
+    <td>0 to 65,535 or 0 to 4,294,967,295</td>
+    </tr>
+    <tr>
+    <td>short</td>
+    <td>2 bytes</td>
+    <td>-32,768 to 32,767</td>
+    </tr>
+    <tr>
+    <td>unsigned short</td>
+    <td>2 bytes</td>
+    <td>0 to 65,535</td>
+    </tr>
+    <tr>
+    <td>long</td>
+    <td>8 bytes or (4bytes for 32 bit OS)</td>
+    <td>-9223372036854775808 to 9223372036854775807</td>
+    </tr>
+    <tr>
+    <td>unsigned long</td>
+    <td>8 bytes</td>
+    <td>0 to 18446744073709551615</td>
+    </tr>
+    </table>
+    <p>To get the exact size of a type or a variable on a particular platform, you can use the <b>sizeof</b> operator. The expressions <i>sizeof(type)</i> yields the storage size of the object or type in bytes. Given below is an example to get the size of various type on a machine using different constant defined in limits.h header file &minus;</p>
+    <div class="demo-view">
+    <a href="http://tpcg.io/FnrxP5" target="_blank" rel="nofollow" class="demo"><i class="fa-external-link"></i> Live Demo</a>
+    </div>
+    <pre class="prettyprint notranslate">
+    #include &lt;stdio.h&gt;
+    #include &lt;stdlib.h&gt;
+    #include &lt;limits.h&gt;
+    #include &lt;float.h&gt;
+
+    int main(int argc, char** argv) {
+
+        printf("CHAR_BIT    :   %d\n", CHAR_BIT);
+        printf("CHAR_MAX    :   %d\n", CHAR_MAX);
+        printf("CHAR_MIN    :   %d\n", CHAR_MIN);
+        printf("INT_MAX     :   %d\n", INT_MAX);
+        printf("INT_MIN     :   %d\n", INT_MIN);
+        printf("LONG_MAX    :   %ld\n", (long) LONG_MAX);
+        printf("LONG_MIN    :   %ld\n", (long) LONG_MIN);
+        printf("SCHAR_MAX   :   %d\n", SCHAR_MAX);
+        printf("SCHAR_MIN   :   %d\n", SCHAR_MIN);
+        printf("SHRT_MAX    :   %d\n", SHRT_MAX);
+        printf("SHRT_MIN    :   %d\n", SHRT_MIN);
+        printf("UCHAR_MAX   :   %d\n", UCHAR_MAX);
+        printf("UINT_MAX    :   %u\n", (unsigned int) UINT_MAX);
+        printf("ULONG_MAX   :   %lu\n", (unsigned long) ULONG_MAX);
+        printf("USHRT_MAX   :   %d\n", (unsigned short) USHRT_MAX);
+
+        return 0;
+    }
+    </pre>
+    <p>When you compile and execute the above program, it produces the following result on Linux &minus;</p>
+    <pre class="result notranslate">
+    CHAR_BIT    :   8
+    CHAR_MAX    :   127
+    CHAR_MIN    :   -128
+    INT_MAX     :   2147483647
+    INT_MIN     :   -2147483648
+    LONG_MAX    :   9223372036854775807
+    LONG_MIN    :   -9223372036854775808
+    SCHAR_MAX   :   127
+    SCHAR_MIN   :   -128
+    SHRT_MAX    :   32767
+    SHRT_MIN    :   -32768
+    UCHAR_MAX   :   255
+    UINT_MAX    :   4294967295
+    ULONG_MAX   :   18446744073709551615
+    USHRT_MAX   :   65535
+    </pre>
+    <h2>Floating-Point Types</h2>
+    <p>The following table provide the details of standard floating-point types with storage sizes and value ranges and their precision &minus;</p>
+    <table style="text-align:center;" class="table table-bordered">
+    <tr>
+    <th style="text-align:center;">Type</th>
+    <th style="text-align:center;">Storage size</th>
+    <th style="text-align:center;">Value range</th>
+    <th style="text-align:center;">Precision</th>
+    </tr>
+    <tr>
+    <td>float</td>
+    <td>4 byte</td>
+    <td>1.2E-38 to 3.4E+38</td>
+    <td>6 decimal places</td>
+    </tr>
+    <tr>
+    <td>double</td>
+    <td>8 byte</td>
+    <td>2.3E-308 to 1.7E+308</td>
+    <td>15 decimal places</td>
+    </tr>
+    <tr>
+    <td>long double</td>
+    <td>10 byte</td>
+    <td>3.4E-4932 to 1.1E+4932</td>
+    <td>19 decimal places</td>
+    </tr>
+    </table>
+    <p>The header file float.h defines macros that allow you to use these values and other details about the binary representation of real numbers in your programs. The following example prints the storage space taken by a float type and its range values &minus;</p>
+    <div class="demo-view">
+    <a href="http://tpcg.io/mynMA1" target="_blank" rel="nofollow" class="demo"><i class="fa-external-link"></i> Live Demo</a>
+    </div>
+    <pre class="prettyprint notranslate">
+    #include &lt;stdio.h&gt;
+    #include &lt;stdlib.h&gt;
+    #include &lt;limits.h&gt;
+    #include &lt;float.h&gt;
+
+    int main(int argc, char** argv) {
+
+        printf("Storage size for float : %d \n", sizeof(float));
+        printf("FLT_MAX     :   %g\n", (float) FLT_MAX);
+        printf("FLT_MIN     :   %g\n", (float) FLT_MIN);
+        printf("-FLT_MAX    :   %g\n", (float) -FLT_MAX);
+        printf("-FLT_MIN    :   %g\n", (float) -FLT_MIN);
+        printf("DBL_MAX     :   %g\n", (double) DBL_MAX);
+        printf("DBL_MIN     :   %g\n", (double) DBL_MIN);
+        printf("-DBL_MAX     :  %g\n", (double) -DBL_MAX);
+        printf("Precision value: %d\n", FLT_DIG );
+
+        return 0;
+    }
+    </pre>
+    <p>When you compile and execute the above program, it produces the following result on Linux &minus;</p>
+    <pre class="result notranslate">
+    Storage size for float : 4
+    FLT_MAX      :   3.40282e+38
+    FLT_MIN      :   1.17549e-38
+    -FLT_MAX     :   -3.40282e+38
+    -FLT_MIN     :   -1.17549e-38
+    DBL_MAX      :   1.79769e+308
+    DBL_MIN      :   2.22507e-308
+    -DBL_MAX     :  -1.79769e+308
+    Precision value: 6
+    </pre>
+    <h2>The void Type</h2>
+    <p>The void type specifies that no value is available. It is used in three kinds of situations &minus;</p>
+    <table class="table table-bordered">
+    <tr>
+    <th style="text-align:center;">Sr.No.</th>
+    <th style="text-align:center;">Types &amp; Description</th>
+    </tr>
+    <tr>
+    <td class="ts">1</td>
+    <td><p><b>Function returns as void</b></p>
+    <p>There are various functions in C which do not return any value or you can say they return void. A function with no return value has the return type as void. For example, <b>void exit (int status);</b></p>
+    </td>
+    </tr>
+    <tr>
+    <td class="ts">2</td>
+    <td><p><b>Function arguments as void</b></p>
+    <p>There are various functions in C which do not accept any parameter. A function with no parameter can accept a void. For example, <b>int rand(void);</b></p>
+    </td>
+    </tr>
+    <tr>
+    <td class="ts">3</td>
+    <td><p><b>Pointers to void</b></p>
+    <p>A pointer of type void * represents the address of an object, but not its type. For example, a memory allocation function <b>void *malloc( size_t size );</b> returns a pointer to void which can be casted to any data type.</p>
+    </td>
+    </tr>
+    </table>
+    <div id="load">
+    	<div class="mui-col-md-12 mui-col-sm-12 np">
+    		<div class="row uk-min-height" id="ebooks_grid">
+
+
+    			<div class="clear"></div>
+
+    		</div>
+    		<div class="clear"></div>
+    	</div>
+    </div>
+    <div class="clear"></div>
+    <div class="mui-container-fluid button-borders show" id="bottom_navigation">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>You have seen the basic structure of a C program, so it will be easy to understand other basic building blocks of the C programming language.</p>
+  <h2>Tokens in C</h2>
+  <p>A C program consists of various tokens and a token is either a keyword, an identifier, a constant, a string literal, or a symbol. For example, the following C statement consists of five tokens &minus;</p>
+  <pre class="prettyprint notranslate">
+  printf("Hello, World! \n");
+  </pre>
+  <p>The individual tokens are &minus;</p>
+  <pre class="prettyprint notranslate">
+  printf
+  (
+     "Hello, World! \n"
+  )
+  ;
+  </pre>
+  <h2>Semicolons</h2>
+  <p>In a C program, the semicolon is a statement terminator. That is, each individual statement must be ended with a semicolon. It indicates the end of one logical entity.</p>
+  <p>Given below are two different statements &minus;</p>
+  <pre class="prettyprint notranslate">
+  printf("Hello, World! \n");
+  return 0;
+  </pre>
+  <h2>Comments</h2>
+  <p>Comments are like helping text in your C program and they are ignored by the compiler. They start with /* and terminate with the characters */ as shown below &minus;</p>
+  <pre class="result notranslate">
+  /* my first program in C */
+  </pre>
+  <p>You cannot have comments within comments and they do not occur within a string or character literals.</p>
+  <h2>Identifiers</h2>
+  <p>A C identifier is a name used to identify a variable, function, or any other user-defined item. An identifier starts with a letter A to Z, a to z, or an underscore '_' followed by zero or more letters, underscores, and digits (0 to 9).</p>
+  <p>C does not allow punctuation characters such as @, $, and % within identifiers. C is a <b>case-sensitive</b> programming language. Thus, <i>Manpower</i> and <i>manpower</i> are two different identifiers in C. Here are some examples of acceptable identifiers &minus;</p>
+  <pre class="result notranslate">
+  mohd       zara    abc   move_name  a_123
+  myname50   _temp   j     a23b9      retVal
+  </pre>
+  <h2>Keywords</h2>
+  <p>The following list shows the reserved words in C. These reserved words may not be used as constants or variables or any other identifier names.</p>
+  <table style="text-align:center;" class="table table-bordered">
+  <tr>
+  <td style="width:25%">auto</td>
+  <td style="width:25%">else</td>
+  <td style="width:25%">long</td>
+  <td style="width:25%">switch</td>
+  </tr>
+  <tr>
+  <td>break</td>
+  <td>enum</td>
+  <td>register</td>
+  <td>typedef</td>
+  </tr>
+  <tr>
+  <td>case</td>
+  <td>extern</td>
+  <td>return</td>
+  <td>union</td>
+  </tr>
+  <tr>
+  <td>char</td>
+  <td>float</td>
+  <td>short</td>
+  <td>unsigned</td>
+  </tr>
+  <tr>
+  <td>const</td>
+  <td>for</td>
+  <td>signed</td>
+  <td>void</td>
+  </tr>
+  <tr>
+  <td>continue</td>
+  <td>goto</td>
+  <td>sizeof</td>
+  <td>volatile</td>
+  </tr>
+  <tr>
+  <td>default</td>
+  <td>if</td>
+  <td>static</td>
+  <td>while</td>
+  </tr>
+  <tr>
+  <td>do</td>
+  <td>int</td>
+  <td>struct</td>
+  <td>_Packed</td>
+  </tr>
+  <tr>
+  <td>double</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  </tr>
+  </table>
+  <h2>Whitespace in C</h2>
+  <p>A line containing only whitespace, possibly with a comment, is known as a blank line, and a C compiler totally ignores it.</p>
+  <p>Whitespace is the term used in C to describe blanks, tabs, newline characters and comments. Whitespace separates one part of a statement from another and enables the compiler to identify where one element in a statement, such as int, ends and the next element begins. Therefore, in the following statement &minus;</p>
+  <pre class="prettyprint notranslate">
+  int age;
+  </pre>
+  <p>there must be at least one whitespace character (usually a space) between int and age for the compiler to be able to distinguish them. On the other hand, in the following statement &minus;</p>
+  <pre class="prettyprint notranslate">
+  fruit = apples + oranges;   // get the total fruit
+  </pre>
+  <p>no whitespace characters are necessary between fruit and =, or between = and apples, although you are free to include some if you wish to increase readability.</p>
+  <div id="load">
+  	<div class="mui-col-md-12 mui-col-sm-12 np">
+  		<div class="row uk-min-height" id="ebooks_grid">
+
+
+  			<div class="clear"></div>
+
+  		</div>
+  		<div class="clear"></div>
+  	</div>
+  </div>
+
+
+
+
+  </body>
+</html>

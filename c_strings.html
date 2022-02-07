@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <link rel="stylesheet" href="style.css">
+   <!----font--->
+    <meta charset="utf-8">
+    <title>C_tutorial</title>
+  </head>
+  <body class="ok">
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">PROJECT</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" href="#">Projects</a>
+            <a class="nav-link" href="#">experience</a>
+              <a class="nav-link" href="#">Contact US</a>
+
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="mui-col-md-6 tutorial-content">
+<h1>C - Strings</h1>
+<hr/>
+<div id="google-top-ads">
+
+<div style="text-align:center" class="google-top-ads">
+<div id="adp_top_ads" style="text-align:center!important;min-height:90px!important"></div>
+
+</div>
+</div>
+<br>
+<div class="mui-container-fluid button-borders">
+<div class="pre-btn">
+<a href="c_pointers.html"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="c_structures.html">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+</div>
+</div>
+<p>Strings are actually one-dimensional array of characters terminated by a <b>null</b> character '\0'. Thus a null-terminated string contains the characters that comprise the string followed by a <b>null</b>.</p>
+<p>The following declaration and initialization create a string consisting of the word "Hello". To hold the null character at the end of the array, the size of the character array containing the string is one more than the number of characters in the word "Hello."</p>
+<pre class="result notranslate">
+char greeting[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
+</pre>
+<p>If you follow the rule of array initialization then you can write the above statement as follows &minus;</p>
+<pre class="result notranslate">
+char greeting[] = "Hello";
+</pre>
+<p>Following is the memory presentation of the above defined string in C/C++ &minus;</p>
+<img src="images1/string_repre.jpg" alt="String Presentation in C/C++"/>
+<p>Actually, you do not place the <i>null</i> character at the end of a string constant. The C compiler automatically places the '\0' at the end of the string when it initializes the array. Let us try to print the above mentioned string &minus;</p>
+<div class="demo-view">
+<a href="http://tpcg.io/P0muN5" target="_blank" rel="nofollow" class="demo"><i class="fa-external-link"></i> Live Demo</a>
+</div>
+<pre class="prettyprint notranslate">
+#include &lt;stdio.h&gt;
+
+int main () {
+
+   char greeting[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
+   printf("Greeting message: %s\n", greeting );
+   return 0;
+}
+</pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">
+Greeting message: Hello
+</pre>
+<p>C supports a wide range of functions that manipulate null-terminated strings &minus;</p>
+<table class="table table-bordered">
+<tr>
+<th>Sr.No.</th>
+<th style="text-align:center;">Function &amp; Purpose</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><p><b>strcpy(s1, s2);</b></p>
+<p>Copies string s2 into string s1.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><p><b>strcat(s1, s2);</b></p>
+<p>Concatenates string s2 onto the end of string s1.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><p><b>strlen(s1);</b></p>
+<p>Returns the length of string s1.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td><p><b>strcmp(s1, s2);</b></p>
+<p>Returns 0 if s1 and s2 are the same; less than 0 if s1&lt;s2; greater than 0 if s1&gt;s2.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td><p><b>strchr(s1, ch);</b></p>
+<p>Returns a pointer to the first occurrence of character ch in string s1.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td><p><b>strstr(s1, s2);</b></p>
+<p>Returns a pointer to the first occurrence of string s2 in string s1.</p>
+</td>
+</tr>
+</table>
+<p>The following example uses some of the above-mentioned functions &minus;</p>
+<div class="demo-view">
+<a href="http://tpcg.io/VBA8Qx" target="_blank" rel="nofollow" class="demo"><i class="fa-external-link"></i> Live Demo</a>
+</div>
+<pre class="prettyprint notranslate">
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main () {
+
+   char str1[12] = "Hello";
+   char str2[12] = "World";
+   char str3[12];
+   int  len ;
+
+   /* copy str1 into str3 */
+   strcpy(str3, str1);
+   printf("strcpy( str3, str1) :  %s\n", str3 );
+
+   /* concatenates str1 and str2 */
+   strcat( str1, str2);
+   printf("strcat( str1, str2):   %s\n", str1 );
+
+   /* total lenghth of str1 after concatenation */
+   len = strlen(str1);
+   printf("strlen(str1) :  %d\n", len );
+
+   return 0;
+}
+</pre>
+<p>When the above code is compiled and executed, it produces the following result &minus;</p>
+<pre class="result notranslate">
+strcpy( str3, str1) :  Hello
+strcat( str1, str2):   HelloWorld
+strlen(str1) :  10
+</pre>
+<div id="load">
+	<div class="mui-col-md-12 mui-col-sm-12 np">
+		<div class="row uk-min-height" id="ebooks_grid">
+
+
+			<div class="clear"></div>
+
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

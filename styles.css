@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box
+  }
+
+  body {
+    font-family: "Lato", sans-serif;
+  }
+
+  /* Style the tab */
+  .tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #FFFDA2;
+    width: 30%;
+    height: 300px;
+  }
+
+  /* Style the buttons inside the tab */
+  .tab button {
+    display: block;
+    background-color: inherit;
+    color: rgb(29, 20, 1);
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #FFAB76;
+  }
+
+  /* Create an active/current "tab button" class */
+  .tab button.active {
+    background-color: #FFAB76
+  }
+
+  /* Style the tab content */
+  .tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 70%;
+    border-left: none;
+
+  }
+
+  img {
+    height: 120px;
+    width: 800px;
+  }
+
+  /* li {
+    float: left;
+  } */
+
+  li a {
+    /* display: block; */
+    color: white;
+    /* text-align: center; */
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover {
+    background-color: rgb(53, 212, 173);
+  }
+
+  .active {
+    background-color: #4CAF50;
+  }
+
+  .navbar {
+    position: fixed;
+ 
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #FF6363;
+    color:rgb(12, 88, 12);
+    width: 100%;
+    top: 0;
+  }
+.navi{
+  list-style-type: none;
+}
+.navi li{
+  display: block; 
+  float: left;
+}
+  ul { 
+    /* margin: 0; */
+    list-style-type: disc;
+    /* padding: 0; */
+    overflow: hidden;
+  
+   
+  }
+
+  pre {
+    background-color: #eee;
+  }
+
+  table {
+    border: 1;
+    background-color: rgb(205, 219, 200);
+  }

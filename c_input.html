@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <link rel="stylesheet" href="style.css">
+   <!----font--->
+    <meta charset="utf-8">
+    <title>C_tutorial</title>
+  </head>
+  <body class="ok">
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">PROJECT</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" href="#">Projects</a>
+            <a class="nav-link" href="#">experience</a>
+              <a class="nav-link" href="#">Contact US</a>
+
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+
+
+    <h1>C - Input and Output</h1>
+    <hr/>
+    <div id="google-top-ads">
+
+    <div style="text-align:center" class="google-top-ads">
+    <div id="adp_top_ads" style="text-align:center!important;min-height:90px!important"></div>
+
+    </div>
+    </div>
+    <br>
+    <div class="mui-container-fluid button-borders">
+    <div class="pre-btn">
+    <a href="c_typedef.html"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+    </div>
+    <div class="nxt-btn">
+    <a href="c_file.html">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+    </div>
+    </div>
+    <p>When we say <b>Input</b>, it means to feed some data into a program. An input can be given in the form of a file or from the command line. C programming provides a set of built-in functions to read the given input and feed it to the program as per requirement.</p>
+    <p>When we say <b>Output</b>, it means to display some data on screen, printer, or in any file. C programming provides a set of built-in functions to output the data on the computer screen as well as to save it in text or binary files.</p>
+    <h2>The Standard Files</h2>
+    <p>C programming treats all the devices as files. So devices such as the display are addressed in the same way as files and the following three files are automatically opened when a program executes to provide access to the keyboard and screen.</p>
+    <table style="text-align:center;" class="table table-bordered">
+    <tr>
+    <th style="width:30%;text-align:center;">Standard File</th>
+    <th style="text-align:center;">File Pointer</th>
+    <th style="text-align:center;">Device</th>
+    </tr>
+    <tr>
+    <td>Standard input</td>
+    <td>stdin</td>
+    <td>Keyboard</td>
+    </tr>
+    <tr>
+    <td>Standard output</td>
+    <td>stdout</td>
+    <td>Screen</td>
+    </tr>
+    <tr>
+    <td>Standard error</td>
+    <td>stderr</td>
+    <td>Your screen</td>
+    </tr>
+    </table>
+    <p>The file pointers are the means to access the file for reading and writing purpose. This section explains how to read values from the screen and how to print the result on the screen.</p>
+    <h2>The getchar() and putchar() Functions</h2>
+    <p>The <b>int getchar(void)</b> function reads the next available character from the screen and returns it as an integer. This function reads only single character at a time. You can use this method in the loop in case you want to read more than one character from the screen.</p>
+    <p>The <b>int putchar(int c)</b> function puts the passed character on the screen and returns the same character. This function puts only single character at a time. You can use this method in the loop in case you want to display more than one character on the screen. Check the following example &minus;</p>
+    <pre class="prettyprint notranslate">
+    #include &lt;stdio.h&gt;
+    int main( ) {
+
+       int c;
+
+       printf( "Enter a value :");
+       c = getchar( );
+
+       printf( "\nYou entered: ");
+       putchar( c );
+
+       return 0;
+    }
+    </pre>
+    <p>When the above code is compiled and executed, it waits for you to input some text. When you enter a text and press enter, then the program proceeds and reads only a single character and displays it as follows &minus;</p>
+    <pre class="result notranslate">
+    $./a.out
+    <b>Enter a value :</b> this is test
+    <b>You entered:</b> t
+    </pre>
+    <h2>The gets() and puts() Functions</h2>
+    <p>The <b>char *gets(char *s)</b> function reads a line from <b>stdin</b> into the buffer pointed to by <b>s</b> until either a terminating newline or EOF (End of File).</p>
+    <p>The <b>int puts(const char *s)</b> function writes the string 's' and 'a' trailing newline to <b>stdout</b>.</p>
+    <p><b>NOTE:</b> Though it has been deprecated to use gets() function, Instead of using gets, you want to use <a href="/c_standard_library/c_function_fgets.htm" title="fgets();">fgets()</a>.</p>
+    <pre class="prettyprint notranslate">
+    #include &lt;stdio.h&gt;
+    int main( ) {
+
+       char str[100];
+
+       printf( "Enter a value :");
+       gets( str );
+
+       printf( "\nYou entered: ");
+       puts( str );
+
+       return 0;
+    }
+    </pre>
+    <p>When the above code is compiled and executed, it waits for you to input some text. When you enter a text and press enter, then the program proceeds and reads the complete line till end, and displays it as follows &minus;</p>
+    <pre class="result notranslate">
+    $./a.out
+    <b>Enter a value :</b> this is test
+    <b>You entered:</b> this is test
+    </pre>
+    <h2>The scanf() and printf() Functions</h2>
+    <p>The <b>int scanf(const char *format, ...)</b>  function reads the input from the standard input stream <b>stdin</b> and scans that input according to the <b>format</b> provided.</p>
+    <p>The <b>int printf(const char *format, ...)</b> function writes the output to the standard output stream <b>stdout</b> and produces the output according to the format provided.</p>
+    <p>The <b>format</b> can be a simple constant string, but you can specify %s, %d, %c, %f, etc., to print or read strings, integer, character or float respectively. There are many other formatting options available which can be used based on requirements. Let us now proceed with a simple example to understand the concepts better &minus;</p>
+    <pre class="prettyprint notranslate">
+    #include &lt;stdio.h&gt;
+    int main( ) {
+
+       char str[100];
+       int i;
+
+       printf( "Enter a value :");
+       scanf("%s %d", str, &amp;i);
+
+       printf( "\nYou entered: %s %d ", str, i);
+
+       return 0;
+    }
+    </pre>
+    <p>When the above code is compiled and executed, it waits for you to input some text. When you enter a text and press enter, then program proceeds and reads the input and displays it as follows &minus;</p>
+    <pre class="result notranslate">
+    $./a.out
+    <b>Enter a value :</b> seven 7
+    <b>You entered:</b> seven 7
+    </pre>
+    <p>Here, it should be noted that scanf() expects input in the same format as you provided %s and %d, which means you have to provide valid inputs like "string integer". If you provide "string string" or "integer integer", then it will be assumed as wrong input. Secondly, while reading a string, scanf() stops reading as soon as it encounters a space, so "this is test" are three strings for scanf().</p>
+    <div id="load">
+    	<div class="mui-col-md-12 mui-col-sm-12 np">
+    		<div class="row uk-min-height" id="ebooks_grid">
+
+
+    			<div class="clear"></div>
+
+    		</div>
+    		<div class="clear"></div>
+    	</div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
